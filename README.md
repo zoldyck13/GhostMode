@@ -75,5 +75,13 @@ Tear down tunnels, safely purge transient kernel firewalls, reset native MAC par
 ghost disable
 ```
 
+## ⚠️ Critical Operational Warning
+[!WARNING]
+__CRITICAL EXECUTION ORDER MANDATE__
+You __MUST MANUALLY DISCONNECT__ from your VPN tunnel (`protonvpn-cli d` or via your desktop client) __BEFORE__ executing the teardown command (`ghost disable`).
+
+__Why this matters__: Failure to terminate the active ProtonVPN state beforehand can cause the active Kill Switch and virtual interfaces (`tun0`) to trap routing configurations during the script's firewall flushing process. This can loop kernel rules, trigger a temporary network deadlock, or leave transient leaks before a fresh DHCP lease is cleanly re-negotiated with your local router.
+
+
 
 
