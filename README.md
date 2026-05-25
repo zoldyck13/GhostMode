@@ -21,6 +21,23 @@ When you tear it down, it gracefully flushes your kernel firewall rules, prevent
 
 ---
 
+
+## Verification & Leak Test Proof
+
+Here is a real-world benchmark analyzing the network state before and after running the `ghost` command on a standard connection, evaluated via *BrowserLeaks DNS Leak Test*:
+
+### 1. Normal Mode (Exposed State)
+Without the script running, local ISP tracking routing tables are fully transparent, exposing raw IP allocation and leaving name resolution queries vulnerable to local hardware monitoring logs:
+
+![Normal Mode Connection](assets/normal_mode.png)
+
+### 2. Ghost Mode Active (Secured State)
+Once `ghost enable` completes execution, hardware signatures are instantly spoofed, the underlying physical IP maps directly to Switzerland infrastructure, and DNS pathways undergo highly distributed multi-hop routing (randomized across 85 global nodes including IncogNet, M247 Europe, and Cogent) leaving **zero platform leaks**:
+
+![Ghost Mode Connection](assets/ghost_mode.png)
+
+___
+
 ##  Prerequisites
 
 Before installing, ensure your Arch Linux system has the required networking dependencies installed:
@@ -57,4 +74,6 @@ Tear down tunnels, safely purge transient kernel firewalls, reset native MAC par
 ```bash
 ghost disable
 ```
+
+
 
