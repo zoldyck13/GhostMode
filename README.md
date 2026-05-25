@@ -36,7 +36,7 @@ yay -S proton-vpn-gtk-app
 Deploy the complete tool directly to your localized bin directory and hook it straight into your current Shell environment path config (`.bashrc` or .`zshrc`):
 
 ```bash
-curl -sSL [https://raw.githubusercontent.com/zoldyck13/GhostMode/main/install.sh](https://raw.githubusercontent.com/zoldyck13/GhostMode/main/install.sh) | bash
+curl -sSL https://github.com/zoldyck13/GhostMode/releases/download/latest/install.sh | bash
 ```
 
 After running the installer, reload your environment settings by executing `source` `~/.zshrc` or `source ~/.bashrc` based on your system configuration.
